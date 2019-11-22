@@ -15,7 +15,7 @@
     $user_id="";
     if (isset($_SESSION['Member_obj'])){
         $obj=$_SESSION['Member_obj'];
-        $user_id=$obj[0]['DEPT_ID'];
+        $user_id=$obj[0]['USER_ID'];
     }
 
     $order="";

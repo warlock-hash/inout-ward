@@ -7,7 +7,7 @@
 
 <?php
 require "../app/manager/path_detect_manager.php";
-$inout_id;
+$inout_id ="";
 if (isset($_GET['id'])){
     $inout_id=$_GET['id'];
     $inout_id=base64_decode($inout_id);

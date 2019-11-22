@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b57e7a46-76cb-4006-b30a-434856617e44" name="Default Changelist" comment="" />
+    <list default="true" id="b57e7a46-76cb-4006-b30a-434856617e44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/chanalled_path_detect.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/chanalled_path_detect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/outward_through_proper_channel.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/outward_through_proper_channel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/outward_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/outward_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/update_latter.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/update_latter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/letters/13_With image test Sended By ADMINISTRATION ADMIN OFFICE.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/letters/1_Check This Letter Sended By ADMINISTRATION ADMIN OFFICE.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/letters/2_Channeled Letter Sended By BURSUR, UNIVERSITY OF SINDH, JAMSHORO..doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/letters/3_Letter to GB Sended By DIRECTORATE OF CONTROLLER OF EXAMINATION (SEMESTER.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/letters/4_this is notification test Sended By GENERAL BRANCH.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/letters/5_An Other test Sended By GENERAL BRANCH.docx" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +40,23 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - usindhex_exams_test@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - usindhex_exams_test@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - usindhex_exams_test@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="usindhex_exams_test: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -35,6 +67,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$" />
@@ -43,6 +78,7 @@
   <component name="ProjectId" id="1TFTcfQF2W3vHio7FTYHfd4MFTt" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../drgs" />
@@ -105,12 +141,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e70814a8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@970ac144" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e70814a8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@742934fb" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@970ac144" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@4e282e9f" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -200,10 +236,28 @@
       <workItem from="1573917446902" duration="16164000" />
       <workItem from="1573986201914" duration="1247000" />
       <workItem from="1574002555040" duration="1202000" />
+      <workItem from="1574333636625" duration="374000" />
+      <workItem from="1574334058972" duration="17000" />
+      <workItem from="1574358444238" duration="841000" />
+      <workItem from="1574438562698" duration="1409000" />
+      <workItem from="1574445786090" duration="3913000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

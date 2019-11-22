@@ -61,7 +61,7 @@
         }
         if(isset($_FILES['letter'])){
             $member_obj=$_SESSION['Member_obj'];
-            $name_addings=$member_obj[0]['DEPT_NAME'];
+            $name_addings=$member_obj[0]['NAME'];
             $letter = uploadImageByPath($_FILES['letter'],"../images/letters",
                 "../images/letters","$inoutid"."_"."$subject"." Sended By ".$name_addings);
         }
