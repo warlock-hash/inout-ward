@@ -213,8 +213,8 @@ CREATE TABLE `inout_ward` (
   `LETTERS_ID` int(11) DEFAULT NULL,
   `IN` int(11) DEFAULT NULL,
   `OUT` int(11) DEFAULT NULL,
-  `IN_DATE` date DEFAULT NULL,
-  `OUT_DATE` date DEFAULT NULL,
+  `IN_DATE` datetime DEFAULT NULL,
+  `OUT_DATE` datetime DEFAULT NULL,
   `IS_CHANNELED` int(1) DEFAULT NULL,
   `PATH` text DEFAULT NULL,
   `INWARD_NO` varchar(100) DEFAULT NULL,
@@ -233,9 +233,10 @@ CREATE TABLE `inout_ward` (
 /*Data for the table `inout_ward` */
 
 insert  into `inout_ward`(`INOUT_ID`,`LETTERS_ID`,`IN`,`OUT`,`IN_DATE`,`OUT_DATE`,`IS_CHANNELED`,`PATH`,`INWARD_NO`,`OUTWARD_NO`,`STATUS`,`PREVIOUS`) values 
-(1,1,134,131,'2019-11-23','2019-11-22',1,'-1','1/BUR/1','1/out/1',1,0),
-(2,2,138,134,'2019-11-23','2019-11-23',1,'-1','DCE/IN/1','1/OUT/1',1,1),
-(3,3,142,138,NULL,'2019-11-23',1,'',NULL,'DCE/OUT/1',0,2);
+(1,1,134,131,'2019-11-23 00:00:00','2019-11-22 09:11:11',1,'-1','1/BUR/1','1/out/1',1,0),
+(2,2,138,134,'2019-11-23 00:00:00','2019-11-23 00:00:00',1,'-1','DCE/IN/1','1/OUT/1',1,1),
+(3,3,142,138,NULL,'2019-11-23 00:00:00',1,'',NULL,'DCE/OUT/1',0,2),
+(4,7,134,131,'2019-11-25 01:56:38','2019-11-25 01:00:31',0,NULL,'1/BUR/2','1/out/5',1,0);
 
 /*Table structure for table `letter_detail` */
 
@@ -256,7 +257,11 @@ CREATE TABLE `letter_detail` (
 insert  into `letter_detail`(`LETTERS_ID`,`SUBJECT`,`FILE_NO`,`POSTAGE_CHARGES`,`LETTER_IMAGE`,`REMARKS`) values 
 (1,'channaled latter','','','../images/letters/1_channaled latter Sended By ADMINISTRATION ADMIN OFFICE.jpg',''),
 (2,'channaled latter','','','../images/letters/2_channaled latter Sended By BURSUR, UNIVERSITY OF SINDH, JAMSHORO..jpg',''),
-(3,'channaled latter','','','../images/letters/3_channaled latter Sended By DIRECTORATE OF CONTROLLER OF EXAMINATION (SEMESTER.jpg','');
+(3,'channaled latter','','','../images/letters/3_channaled latter Sended By DIRECTORATE OF CONTROLLER OF EXAMINATION (SEMESTER.jpg',''),
+(4,'checking minor bugs','','','',''),
+(5,'path view testing','','','',''),
+(6,'checking date and time merging','','','',''),
+(7,'checking date and time in automated','','','../images/letters/4_checking date and time in automated Sended By ADMINISTRATION ADMIN OFFICE.pdf','');
 
 /*Table structure for table `manual_inout` */
 
@@ -265,19 +270,24 @@ DROP TABLE IF EXISTS `manual_inout`;
 CREATE TABLE `manual_inout` (
   `M_INOUT_ID` int(11) NOT NULL,
   `LETTERS_ID` int(11) DEFAULT NULL,
-  `SEND_BY_NAME` varchar(255) DEFAULT NULL,
-  `RECEIVE_BY_NAME` varchar(255) DEFAULT NULL,
+  `SENDER_NAME` varchar(255) DEFAULT NULL,
+  `RECEIVER_NAME` varchar(255) DEFAULT NULL,
   `SEND_OR_RECEIVE` varchar(1) DEFAULT NULL,
   `IN` int(11) DEFAULT NULL,
   `OUT` int(11) DEFAULT NULL,
   `INWARD_NO` varchar(100) DEFAULT NULL,
   `OUTWARD_NO` varchar(100) DEFAULT NULL,
-  `IN_DATE` date DEFAULT NULL,
-  `OUT_DATE` date DEFAULT NULL,
+  `IN_DATE` datetime DEFAULT NULL,
+  `OUT_DATE` datetime DEFAULT NULL,
   PRIMARY KEY (`M_INOUT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `manual_inout` */
+
+insert  into `manual_inout`(`M_INOUT_ID`,`LETTERS_ID`,`SENDER_NAME`,`RECEIVER_NAME`,`SEND_OR_RECEIVE`,`IN`,`OUT`,`INWARD_NO`,`OUTWARD_NO`,`IN_DATE`,`OUT_DATE`) values 
+(1,4,'ADMINISTRATION ADMIN OFFICE','this is test','S',NULL,131,NULL,'1/out/2',NULL,'0000-00-00 00:00:00'),
+(2,5,'ADMINISTRATION ADMIN OFFICE','this is test again','S',NULL,131,NULL,'1/out/3',NULL,'2019-11-24 10:11:11'),
+(3,6,'ADMINISTRATION ADMIN OFFICE','Date Time Department','S',NULL,131,NULL,'1/out/4',NULL,'2019-11-25 00:56:41');
 
 /*Table structure for table `sac_login_user` */
 

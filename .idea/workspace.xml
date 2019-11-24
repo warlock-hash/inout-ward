@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b57e7a46-76cb-4006-b30a-434856617e44" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/outward_channel_handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/outward_channel_handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/outward_handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/outward_handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/recievelatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/recievelatter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/manager/OutwardManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/manager/OutwardManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/manager/inward_view_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/manager/inward_view_manager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_for_quizapp.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/test_for_quizapp.php" afterDir="false" />
-    </list>
+    <list default="true" id="b57e7a46-76cb-4006-b30a-434856617e44" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +221,7 @@
       <workItem from="1574438562698" duration="1409000" />
       <workItem from="1574445786090" duration="4513000" />
       <workItem from="1574507744754" duration="2944000" />
-      <workItem from="1574590512208" duration="20040000" />
+      <workItem from="1574590512208" duration="20397000" />
     </task>
     <servers />
   </component>
