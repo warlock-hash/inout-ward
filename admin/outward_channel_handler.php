@@ -42,7 +42,8 @@ if (isset($_POST['send'])) {
     }
 
     $ret_out_no = checkOutWardNoExistence($outward_no, $send_by);
-    if ($ret_out_no) {
+    $bool_in_manual = checkOutWardNoExistenceInManualInOutWard($outward_no, $send_by);
+    if ($ret_out_no || $bool_in_manual) {
         header("Location: outward_through_proper_channel.php?error=Out Ward No " . $outward_no . " Already exists&mesg=outward_no");
         exit();
     }
@@ -221,7 +222,8 @@ if (isset($_POST['send'])) {
     }
 
 
-    $result = insertLettersDetail($id_for_latter_Detail, $subject, $file_no, $postage_charges, $letter, $remarks);
+    $result = insertLettersDetail($id_for_latter_Detail, $subject, $file_no,
+        $postage_charges, $letter, $remarks);
     if ($result) {
         $letter_id = $id_for_latter_Detail;
 
@@ -233,7 +235,9 @@ if (isset($_POST['send'])) {
 //        }else{
 //
 //        }
-        $result = insertInOutWardChanneled($id, $letter_id, $send_to, $send_by, $outward_no, $outward_date, $path_string);
+        $combine_date_time=mergeDateAndTime($outward_date);
+        $result = insertInOutWardChanneled($id, $letter_id, $send_to, $send_by, $outward_no,
+            $combine_date_time, $path_string);
         if ($result) {
             //header("Location : public/page.php");
             echo "<script>

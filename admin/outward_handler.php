@@ -15,12 +15,16 @@ if (isset($_POST['send'])) {
     $remarks = "";
     $send_to = "";
     $send_by = "";
+    $sender_name = "";
+    $check_auto_manual = "";
+    $m_receiver_name = "";
     $letter_image = "";
 
     if (isset($_SESSION['Member_obj'])) {
         $member_obj = $_SESSION['Member_obj'];
         if ($member_obj) {
             $send_by = $member_obj[0]['USER_ID'];
+            $sender_name = $member_obj[0]['NAME'];
         }
     }
 
@@ -148,45 +152,72 @@ if (isset($_POST['send'])) {
         }
     }
 
+    if (isset($_POST['m_receiver_name'])) {
+        if (isValidData($_POST['m_receiver_name'])) {
+            $m_receiver_name = isValidData($_POST['m_receiver_name']);
+            // now apply validation
+            if (preg_match('/[!@#$%^&*(),.?":;{}|<>]/', $m_receiver_name)) {
+                // one or more of the 'special characters' found in $string
+                header("Location: letter_outward.php?error=Invalid Input in Subject allowed special character - / _ &mesg=m_receiver_name");
+                exit();
+
+//                echo "<script>window.location.href='letter_outward.php?mesg=subject';</script>";
+
+            }
+        } else {
+            //
+            header("Location: letter_outward.php?error=Invalid Input in Subject allowed special character - / _ &mesg=m_receiver_name");
+            exit();
+//            echo "<script>window.location.href='letter_outward.php?mesg=subject';</script>";
+        }
+    }
+
     $bool = checkOutWardNoExistence($outward_no, $send_by);
-    if ($bool) {
+    $bool_in_manual = checkOutWardNoExistenceInManualInOutWard($outward_no, $send_by);
+    if ($bool || $bool_in_manual) {
         header("Location: letter_outward.php?error=Out Ward No " . $outward_no . " Already exists&mesg=outward_no");
         exit();
     }
 
     $id_for_latter_Detail = getNextId('LETTERS_ID', 'letter_detail');
     $id = getNextId('INOUT_ID', 'inout_ward');
-    $letter="";
-//    if (isset($_POST['letter'])) {
-//        $_FILES['cover_image'] && $_FILES['cover_image']['error'] == 0
-        if ($_FILES['letter']['size'] != 0 &&
-            $_FILES['cover_image']['error'] !== UPLOAD_ERR_NO_FILE ) {
-//            echo "this if works letter";
-//            exit();
-            $member_obj = $_SESSION['Member_obj'];
-            $name_addings = $member_obj[0]['NAME'];
-            $letter = uploadImageByPath($_FILES['letter'], "../images/letters",
-                "../images/letters", "$id" . "_" . "$subject" . " Sended By " . $name_addings);
-        } else {
-            echo "Some Error Occurs at Uploading the image";
-            $letter = "";
-        }
-//    }
+    $letter = "";
+    if ($_FILES['letter']['size'] != 0 &&
+        $_FILES['cover_image']['error'] !== UPLOAD_ERR_NO_FILE) {
+        $member_obj = $_SESSION['Member_obj'];
+        $name_addings = $member_obj[0]['NAME'];
+        $letter = uploadImageByPath($_FILES['letter'], "../images/letters",
+            "../images/letters", "$id" . "_" . "$subject" . " Sended By " . $name_addings);
+    } else {
+        echo "Some Error Occurs at Uploading the image";
+        $letter = "";
+    }
 
-    $result = insertLettersDetail($id_for_latter_Detail, $subject, $file_no, $postage_charges, $letter, $remarks);
+    $result = insertLettersDetail($id_for_latter_Detail, $subject,
+        $file_no, $postage_charges, $letter, $remarks);
+
+// your code here for manual outward
+
+    if ($send_to == -1) {
+        if ($result) {
+            $letter_id = $id_for_latter_Detail;
+            $id = getNextId('M_INOUT_ID', 'manual_inout');
+            $combine_date_time = mergeDateAndTime($outward_date);
+            $result = insertManualInoutWard($id, $letter_id, $send_by, $m_receiver_name,
+                $sender_name, $outward_no, $combine_date_time);
+            if ($result) {
+                echo "<script>
+                    window.location.href = 'mainPanel.php?success=Letter Has been Sent successfully...';
+                  </script>";
+            }
+        }
+    }
+
+
     if ($result) {
         $letter_id = $id_for_latter_Detail;
-
-//        if(isset($_FILES['letter'])){
-//            $member_obj=$_SESSION['Member_obj'];
-//            $name_addings=$member_obj[0]['DEPT_NAME'];
-//            $letter = uploadImageByPath($_FILES['letter'],"../images/letters",
-//                "../images/letters","$id"."_"."$subject"." Sended By ".$name_addings);
-//        }else{
-//
-//        }
-//        $outward_date=date_format($outward_date,'Y-m-d');
-        $result = insertInOutWard($id, $letter_id, $send_to, $send_by, $outward_no, $outward_date);
+        $combine_date_time=mergeDateAndTime($outward_date);
+        $result = insertInOutWard($id, $letter_id, $send_to, $send_by, $outward_no, $combine_date_time);
         if ($result) {
             //header("Location : public/page.php");
             echo "<script>

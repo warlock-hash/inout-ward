@@ -57,10 +57,13 @@ function getOnlyReceivedLetters($user_id)
 
 function changeStatusToRead($id, $inward_no)
 {
-    $bool = false;
-    $date = Date('Y-m-d');
+    date_default_timezone_set('Asia/karachi');
     $con = getConnection();
-    $query = "UPDATE inout_ward SET `STATUS`=1,INWARD_NO='$inward_no',IN_DATE='$date' WHERE INOUT_ID = $id";
+    $date = Date('Y-m-d');
+    $time = date('H:i:s');
+    $combinedDT = date('Y-m-d H:i:s', strtotime("$date $time"));
+    $bool = false;
+    $query = "UPDATE inout_ward SET `STATUS`=1,INWARD_NO='$inward_no',IN_DATE='$combinedDT' WHERE INOUT_ID = $id";
     $result = mysqli_query($con, $query);
     if (!$result) {
         die("dead " . mysqli_error($con));
@@ -86,19 +89,50 @@ function checkInwardNoExistance($inward_no, $user_id)
     return $ret_inward_no;
 }
 
+function checkInwardNoInManualInOutWardExistance($inward_no, $user_id)
+{
+    $con = getConnection();
+    $ret_inward_no = "";
+    $query = "SELECT INWARD_NO FROM manual_inout WHERE INWARD_NO='$inward_no' AND `IN`='$user_id'";
+    $result = mysqli_query($con, $query);
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $ret_inward_no = $row['INWARD_NO'];
+        }
+    }
+    return $ret_inward_no;
+}
+
 function getLastInwardNo($user_id)
 {
     $con = getConnection();
-    $pre_inward_no = "";
+    $inward_no_inout_ward = "";
+    $inward_no_manual_inout_ward = "";
+    $inward_date_inout_ward = "";
+    $inward_date_manual_inout_ward = "";
     $query = "SELECT * FROM inout_ward WHERE INOUT_ID=
             (SELECT MAX(INOUT_ID) AS 'INOUT_ID' FROM inout_ward WHERE `IN`='$user_id' AND `STATUS`<>0)";
     $result = mysqli_query($con, $query);
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $pre_inward_no = $row['INWARD_NO'];
+            $inward_no_inout_ward = $row['INWARD_NO'];
+            $inward_date_inout_ward=$row['IN_DATE'];
         }
     }
-    return $pre_inward_no;
+    $query="SELECT * FROM manual_inout WHERE M_INOUT_ID=
+            (SELECT MAX(M_INOUT_ID) AS 'M_INOUT_ID' FROM manual_inout WHERE `IN`='$user_id')";
+    $result = mysqli_query($con, $query);
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $inward_no_manual_inout_ward = $row['INWARD_NO'];
+            $inward_date_manual_inout_ward=$row['IN_DATE'];
+        }
+    }
+    if ($inward_date_inout_ward > $inward_date_manual_inout_ward){
+        return $inward_no_inout_ward;
+    }else{
+        return $inward_no_manual_inout_ward;
+    }
 }
 
 ?>

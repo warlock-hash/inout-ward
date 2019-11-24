@@ -80,7 +80,7 @@ if (isset($_GET['mesg'])) {
                                         <label for="exampleInput1" class="bmd-label-floating">Inward No
                                             <span class="text-danger">*</span></label>
                                         <input type="text" id="inward_no" class="form-control" name="inward_no"
-                                               required/>
+                                              value="<?= $pre_inward_no ?>" required/>
                                     </div>
                                 </div>
                                 <div class="col-md-1"></div>
@@ -118,7 +118,7 @@ if (isset($_GET['mesg'])) {
 <?php
 if (isset($_POST['receive'])) {
     $user_obj = $_SESSION['Member_obj'];
-    $user_id = $user_obj[0]['DEPT_ID'];
+    $user_id = $user_obj[0]['USER_ID'];
 
     $inward_no = "";
     $id = "";
@@ -148,7 +148,8 @@ if (isset($_POST['receive'])) {
     }
 
     $ret_inward_no = checkInwardNoExistance($inward_no, $user_id);
-    if ($ret_inward_no) {
+    $ret_manual_inward_no = checkInwardNoInManualInOutWardExistance($inward_no, $user_id);
+    if ($ret_inward_no || $ret_manual_inward_no) {
 //        header("Location: recievelatter.php?error=Inward No ".$inward_no." Already Exist&mesg=inward_no&path=$path&id=$id");
         echo "<script> window.location.href='recievelatter.php?error=Inward No " . $inward_no . " Already Exist&mesg=inward_no&path=$path&id=$id'; </script>";
         exit();
