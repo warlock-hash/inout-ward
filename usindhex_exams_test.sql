@@ -258,6 +258,49 @@ insert  into `letter_detail`(`LETTERS_ID`,`SUBJECT`,`FILE_NO`,`POSTAGE_CHARGES`,
 (2,'channaled latter','','','../images/letters/2_channaled latter Sended By BURSUR, UNIVERSITY OF SINDH, JAMSHORO..jpg',''),
 (3,'channaled latter','','','../images/letters/3_channaled latter Sended By DIRECTORATE OF CONTROLLER OF EXAMINATION (SEMESTER.jpg','');
 
+/*Table structure for table `manual_inout` */
+
+DROP TABLE IF EXISTS `manual_inout`;
+
+CREATE TABLE `manual_inout` (
+  `M_INOUT_ID` int(11) NOT NULL,
+  `LETTERS_ID` int(11) DEFAULT NULL,
+  `SEND_BY_NAME` varchar(255) DEFAULT NULL,
+  `RECEIVE_BY_NAME` varchar(255) DEFAULT NULL,
+  `SEND_OR_RECEIVE` varchar(1) DEFAULT NULL,
+  `IN` int(11) DEFAULT NULL,
+  `OUT` int(11) DEFAULT NULL,
+  `INWARD_NO` varchar(100) DEFAULT NULL,
+  `OUTWARD_NO` varchar(100) DEFAULT NULL,
+  `IN_DATE` date DEFAULT NULL,
+  `OUT_DATE` date DEFAULT NULL,
+  PRIMARY KEY (`M_INOUT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `manual_inout` */
+
+/*Table structure for table `sac_login_user` */
+
+DROP TABLE IF EXISTS `sac_login_user`;
+
+CREATE TABLE `sac_login_user` (
+  `USER_ID` int(3) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) DEFAULT NULL,
+  `USER_NAME` text DEFAULT NULL,
+  `PASSWORD` text DEFAULT NULL,
+  `IMAGE` text DEFAULT NULL,
+  `RESET_TOKEN` text DEFAULT NULL,
+  `ACCT_STATUS` varchar(1) DEFAULT NULL,
+  `REMARKS` text DEFAULT NULL,
+  PRIMARY KEY (`USER_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `sac_login_user` */
+
+insert  into `sac_login_user`(`USER_ID`,`NAME`,`USER_NAME`,`PASSWORD`,`IMAGE`,`RESET_TOKEN`,`ACCT_STATUS`,`REMARKS`) values 
+(1,'VC','vc@usindh.edu.pk','14736c9e8daf20c983172bd51c2bef97',NULL,NULL,'1','vc'),
+(2,'Super Admin','super.admin@usindh.edu.pk','14736c9e8daf20c983172bd51c2bef97',NULL,NULL,'1','super admin');
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

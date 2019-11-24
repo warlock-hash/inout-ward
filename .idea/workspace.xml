@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b57e7a46-76cb-4006-b30a-434856617e44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/74840585-5bb5-4888-ba96-9fb99a8092a0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/74840585-5bb5-4888-ba96-9fb99a8092a0/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/chanalled_path_detect.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/chanalled_path_detect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/outward_through_proper_channel.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/outward_through_proper_channel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/outward_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/outward_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/update_latter.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/update_latter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/letters/13_With image test Sended By ADMINISTRATION ADMIN OFFICE.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/letters/1_Check This Letter Sended By ADMINISTRATION ADMIN OFFICE.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/letters/2_Channeled Letter Sended By BURSUR, UNIVERSITY OF SINDH, JAMSHORO..doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/letters/3_Letter to GB Sended By DIRECTORATE OF CONTROLLER OF EXAMINATION (SEMESTER.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/letters/4_this is notification test Sended By GENERAL BRANCH.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/letters/5_An Other test Sended By GENERAL BRANCH.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/letter_outward.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/letter_outward.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usindhex_exams_test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/usindhex_exams_test.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +71,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../drgs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -89,17 +79,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\inout-ward\includes\admin\images" />
-      <recent name="C:\xampp\htdocs\inout-ward\reporting" />
-      <recent name="C:\xampp\htdocs\inouttesting\admin\images" />
-      <recent name="C:\xampp\htdocs\inouttesting\admin" />
-      <recent name="C:\xampp\htdocs\DGRS_ADDMISSIONS\app\beans" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\inout-ward\includes\admin" />
       <recent name="C:\xampp\htdocs\DGRS_ADDMISSIONS\includes" />
       <recent name="C:\xampp\htdocs\DGRS_ADDMISSIONS\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\inout-ward" />
+      <recent name="C:\xampp\htdocs\inout-ward\includes\admin\images" />
+      <recent name="C:\xampp\htdocs\inout-ward\reporting" />
+      <recent name="C:\xampp\htdocs\inouttesting\admin\images" />
+      <recent name="C:\xampp\htdocs\inouttesting\admin" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -141,12 +131,7 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@970ac144" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@970ac144" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@4e282e9f" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3f310e91" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -240,7 +225,9 @@
       <workItem from="1574334058972" duration="17000" />
       <workItem from="1574358444238" duration="841000" />
       <workItem from="1574438562698" duration="1409000" />
-      <workItem from="1574445786090" duration="3913000" />
+      <workItem from="1574445786090" duration="4513000" />
+      <workItem from="1574507744754" duration="2944000" />
+      <workItem from="1574590512208" duration="4015000" />
     </task>
     <servers />
   </component>

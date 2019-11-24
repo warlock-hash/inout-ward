@@ -117,7 +117,8 @@ require "../app/manager/OutwardManager.php";
                                         <div class="top-margin">
                                             <label for="exampleInput1" class="bmd-label-floating">Send To
                                                 <span class="text-danger">*</span></label>
-                                            <select class="form-control" id="send_to" name="send_to" required>
+                                            <select class="form-control" id="send_to" name="send_to"
+                                                    onchange="isManualOutward()" required>
                                                 <option value="0">---Select A Option---</option>
                                                 <?php
                                                 foreach ($list as $key) {
@@ -126,6 +127,7 @@ require "../app/manager/OutwardManager.php";
                                                     <?php
                                                 }
                                                 ?>
+                                                <option value="-1">Manual Outward</option>
                                             </select>
                                         </div>
                                     </div>
@@ -134,11 +136,14 @@ require "../app/manager/OutwardManager.php";
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-10">
-                                        <div class="top-margin">
+                                        <div class="top-margin" id="img_holder">
                                             <label for="exampleInput1" class="bmd-label-floating">Select File
                                                 <span class="text-danger"></span></label>
                                             <input type="file" accept=".doc,.docx,.xls,.xlsx,.ppt,.pptx,.pdf,.jpeg,.jpg"
-                                                   class="form-control" id="letter" name="letter" />
+                                                   class="form-control" id="letter" name="letter"/>
+                                        </div>
+                                        <div class="top-margin" id="manual_input">
+
                                         </div>
                                     </div>
                                     <div class="col-md-1"></div>
@@ -146,7 +151,7 @@ require "../app/manager/OutwardManager.php";
                                 <div class="row">
                                     <div class="col-md-5"></div>
                                     <div class="col-md-2">
-                                        <div class="top-margin">
+                                        <div class="top-margin" id="final_point">
                                             <input type="submit" value="Send" name="send" id="send"
                                                    class="btn btn-round btn-success">
                                         </div>
@@ -164,8 +169,51 @@ require "../app/manager/OutwardManager.php";
         <?php require_once "../includes/admin/footer_area.php"; ?>
     </div>
     <script>
-        document.getElementById('<?= $point ?>').style.borderColor = '#f73905';
+        var check = 0;
 
+        function isManualOutward() {
+            let e = document.getElementById("send_to");
+            let img_holder = document.getElementById("img_holder");
+            let manual_input = document.getElementById("manual_input");
+            let final_point = document.getElementById("final_point");
+            let select_value = e.options[e.selectedIndex].value;
+            if (select_value == -1) {
+                img_holder.hidden = true;
+                let label = document.createElement("label");
+                label.setAttribute("class", "bmd-label-floating");
+                label.setAttribute("id", "m_receiver_label");
+                label.appendChild(document.createTextNode("Enter the Receiver Manually"));
+                let input = document.createElement("input");
+                input.setAttribute("type", "text");
+                input.setAttribute("class", "form-control");
+                input.setAttribute("id", "m_receiver_name");
+                input.setAttribute("name", "m_receiver_name");
+                input.required = true;
+                let check_auto_manual = document.createElement("input");
+                check_auto_manual.setAttribute("type", "text");
+                check_auto_manual.setAttribute("name", "check_auto_manual");
+                check_auto_manual.setAttribute("id", "check_auto_manual");
+                // console.log(select_value);
+                check_auto_manual.setAttribute("value", select_value);
+                check_auto_manual.hidden = true;
+                manual_input.appendChild(label);
+                manual_input.appendChild(input);
+                final_point.appendChild(check_auto_manual);
+                check++;
+            }
+            if (select_value != -1 && check != 0) {
+                check = 0;
+                img_holder.hidden = false;
+                manual_input.removeChild(document.getElementById("m_receiver_label"));
+                manual_input.removeChild(document.getElementById("m_receiver_name"));
+                final_point.removeChild(document.getElementById("check_auto_manual"));
+                // manual_input.hidden = true;
+            }
+        }
+
+        <?php if ($point != null){ ?>
+        document.getElementById('<?= $point ?>').style.borderColor = '#f73905';
+        <?php } ?>
     </script>
 
 <?php require_once "../includes/admin/footer.php"; ?>
