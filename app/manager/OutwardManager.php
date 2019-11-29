@@ -1,24 +1,7 @@
 <?php
 require "manager.php";
 
-function getNextId($id_for, $table)
-{
-    $con = getConnection();
-    $id = 1;
-    $query = "SELECT MAX($id_for) AS WANTED_ID FROM $table";
-    $result = mysqli_query($con, $query);
-    if (!$result) {
-        die("dead" . mysqli_error($con));
-    }
-    while ($row = mysqli_fetch_assoc($result)) {
-        //print_r($row);
 
-        $id = $row['WANTED_ID'] + 1;
-
-
-    }
-    return $id;
-}
 
 //function checkIsForwaded($letter_id){
 //    $data="";
@@ -196,35 +179,29 @@ function getLastOutWardNo($user)
     }
 }
 
-function mergeDateAndTime($date){
-    date_default_timezone_set('Asia/karachi');
-    $time = date('H:i:s');
-    $combinedDT = date('Y-m-d H:i:s', strtotime("$date $time"));
-    return $combinedDT;
-}
 
-function insertManualInoutWard($id, $letter_id, $send_by_id, $m_receiver_name,
-                               $sender_name, $outward_no, $outward_date)
+
+function insertManualInoutWard($id, $letter_id, $sender_id, $m_receiver_name,
+                               $outward_no, $outward_date)
 {
     $con = getConnection();
-    $out = $send_by_id;
+    $out = $sender_id;
     $query = "INSERT INTO manual_inout 
             (M_INOUT_ID, 
-             LETTERS_ID, 
-             SENDER_NAME, 
-             RECEIVER_NAME, 
+             LETTERS_ID,
+             S_R_NAME,
              SEND_OR_RECEIVE, 
              `OUT`, 
              OUTWARD_NO, 
              OUT_DATE) 
              values ('$id',
                      '$letter_id',
-                     '$sender_name',
                      '$m_receiver_name',
                      'S',
                      '$out',
                      '$outward_no',
                      '$outward_date')";
+    echo $query;
     $result = mysqli_query($con, $query);
     if (!$result) {
         die("insert manual inward_outward query die" . mysqli_error($con));

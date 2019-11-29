@@ -54,14 +54,14 @@
             <div class="row">
                 <div class="col-lg-1 col-md-1"></div>
                 <div class="col-lg-4 col-md-3">
-                    <a href="inward_view.php">
+                    <a href="inward_menu.php">
                         <div class="card">
                             <span class="badge badge-light"><?php if (sizeof($data) > 0){
                                 echo sizeof($data);
                                 } ?></span>
                             <span class="sr-only">unread messages</span>
                             <div class="card-header" style="height:90px;text-align:center;">
-                                <h6 style="padding-top:8%">Inbox</h6>
+                                <h6 style="padding-top:8%">Inward Menu</h6>
                             </div>
                             <div class="card-body" style="text-align:center;">
                                 <img src="../includes/admin/images/receiving.png" alt="Inward's Letter"
@@ -92,6 +92,7 @@
             <div class="row">
                 <div class="col-lg-1 col-md-1"></div>
                 <div class="col-lg-3 col-md-3">
+
                 </div>
                 <div class="col-lg-4 col-md-3">
                     <a href="../report/reporting.php">

@@ -21,6 +21,32 @@ function getConnection(){
 
 }
 
+function getNextId($id_for, $table)
+{
+    $con = getConnection();
+    $id = 1;
+    $query = "SELECT MAX($id_for) AS WANTED_ID FROM $table";
+    $result = mysqli_query($con, $query);
+    if (!$result) {
+        die("dead" . mysqli_error($con));
+    }
+    while ($row = mysqli_fetch_assoc($result)) {
+        //print_r($row);
+
+        $id = $row['WANTED_ID'] + 1;
+
+
+    }
+    return $id;
+}
+
+function mergeDateAndTime($date){
+    date_default_timezone_set('Asia/karachi');
+    $time = date('H:i:s');
+    $combinedDT = date('Y-m-d H:i:s', strtotime("$date $time"));
+    return $combinedDT;
+}
+
 function getDepartmentById($dept_id){
     $con=getConnection();
     $query="Select * from department where DEPT_ID = '$dept_id'";

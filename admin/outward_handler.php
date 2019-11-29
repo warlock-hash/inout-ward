@@ -14,7 +14,7 @@ if (isset($_POST['send'])) {
     $postage_charges = "";
     $remarks = "";
     $send_to = "";
-    $send_by = "";
+    $sender_id = "";
     $sender_name = "";
     $check_auto_manual = "";
     $m_receiver_name = "";
@@ -23,7 +23,7 @@ if (isset($_POST['send'])) {
     if (isset($_SESSION['Member_obj'])) {
         $member_obj = $_SESSION['Member_obj'];
         if ($member_obj) {
-            $send_by = $member_obj[0]['USER_ID'];
+            $sender_id = $member_obj[0]['USER_ID'];
             $sender_name = $member_obj[0]['NAME'];
         }
     }
@@ -172,8 +172,8 @@ if (isset($_POST['send'])) {
         }
     }
 
-    $bool = checkOutWardNoExistence($outward_no, $send_by);
-    $bool_in_manual = checkOutWardNoExistenceInManualInOutWard($outward_no, $send_by);
+    $bool = checkOutWardNoExistence($outward_no, $sender_id);
+    $bool_in_manual = checkOutWardNoExistenceInManualInOutWard($outward_no, $sender_id);
     if ($bool || $bool_in_manual) {
         header("Location: letter_outward.php?error=Out Ward No " . $outward_no . " Already exists&mesg=outward_no");
         exit();
@@ -203,8 +203,7 @@ if (isset($_POST['send'])) {
             $letter_id = $id_for_latter_Detail;
             $id = getNextId('M_INOUT_ID', 'manual_inout');
             $combine_date_time = mergeDateAndTime($outward_date);
-            $result = insertManualInoutWard($id, $letter_id, $send_by, $m_receiver_name,
-                $sender_name, $outward_no, $combine_date_time);
+            $result = insertManualInoutWard($id,$letter_id,$sender_id,$m_receiver_name,$outward_no,$combine_date_time);
             if ($result) {
                 echo "<script>
                     window.location.href = 'mainPanel.php?success=Letter Has been Sent successfully...';
@@ -217,7 +216,7 @@ if (isset($_POST['send'])) {
     if ($result) {
         $letter_id = $id_for_latter_Detail;
         $combine_date_time=mergeDateAndTime($outward_date);
-        $result = insertInOutWard($id, $letter_id, $send_to, $send_by, $outward_no, $combine_date_time);
+        $result = insertInOutWard($id, $letter_id, $send_to, $sender_id, $outward_no, $combine_date_time);
         if ($result) {
             //header("Location : public/page.php");
             echo "<script>

@@ -14,14 +14,15 @@ $pre_inward_no = "";
 $point = "";
 if (isset($_GET['path'])) {
     $path = $_GET['path'];
-    $pre_inward_no = getLastInwardNo($user_id);
-    if (!$pre_inward_no) {
-        $pre_inward_no = 0;
-    }
+
 }
 $id = "";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    $pre_inward_no = getLastInwardNo($user_id);
+    if (!$pre_inward_no) {
+        $pre_inward_no = 0;
+    }
 //    $id=base64_decode($id);
 
 }

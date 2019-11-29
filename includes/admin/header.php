@@ -238,6 +238,9 @@ background: #232121;
         $( function() {
             $( "#outward_date" ).datepicker({ minDate: -20, maxDate: "+1M +10D" });
         } );
+        $( function() {
+            $( "#inward_date" ).datepicker({ minDate: -20, maxDate: "+1M +10D" });
+        } );
     </script>
 </head>
 
