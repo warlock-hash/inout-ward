@@ -28,6 +28,8 @@
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-tags"></i>
                                 <a href="../admin/inward_view.php">Inwarded Letter</a></li>
+                                <li><i class="fa fa-tags"></i>
+                                    <a href="../admin/manual_inward.php">Manual Inward</a></li>
                             </ul>
                         </li>
                         <li class="menu-item-has-children dropdown">

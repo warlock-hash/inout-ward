@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b57e7a46-76cb-4006-b30a-434856617e44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/includes/admin/images/manual_inward.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/manager/manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/manager/manager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/manager/report_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/manager/report_manager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/reporting.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/reporting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/show_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/show_report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/inward_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inward_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/admin/side_bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/side_bar.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +70,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/includes/admin/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -79,17 +78,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\inout-ward\includes\admin\images" />
+      <recent name="C:\xampp\htdocs\inout-ward" />
+      <recent name="C:\xampp\htdocs\inout-ward\reporting" />
+      <recent name="C:\xampp\htdocs\inouttesting\admin\images" />
+      <recent name="C:\xampp\htdocs\inouttesting\admin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\inout-ward\includes\admin" />
       <recent name="C:\xampp\htdocs\DGRS_ADDMISSIONS\includes" />
       <recent name="C:\xampp\htdocs\DGRS_ADDMISSIONS\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\inout-ward" />
-      <recent name="C:\xampp\htdocs\inout-ward\includes\admin\images" />
-      <recent name="C:\xampp\htdocs\inout-ward\reporting" />
-      <recent name="C:\xampp\htdocs\inouttesting\admin\images" />
-      <recent name="C:\xampp\htdocs\inouttesting\admin" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -241,6 +240,7 @@
       <workItem from="1575110417488" duration="6228000" />
       <workItem from="1575216918942" duration="835000" />
       <workItem from="1575225831854" duration="19000" />
+      <workItem from="1575266479801" duration="697000" />
     </task>
     <servers />
   </component>

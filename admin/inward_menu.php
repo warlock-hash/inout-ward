@@ -73,7 +73,7 @@
                             </div>
                             <div class="card-body " style="text-align:center;">
 
-                                <img src="../includes/admin/images/receiving.png" alt="Letter Through Proper Channel" style="max-height:200px;" >
+                                <img src="../includes/admin/images/manual_inward.png" alt="Letter Through Proper Channel" style="max-height:200px;" >
                             </div>
                         </div>
                     </a>
