@@ -15,10 +15,12 @@
     //        $user_id=$user_obj[0]['DEPT_ID'];
     $user_id = "";
     $sub_department = "";
+    $isSuperAdmin="";
     $user_id = $user_obj[0]['USER_ID'];
 
     if ($user_obj[0]['REMARKS'] == "vc" || $user_obj[0]['REMARKS'] == "super admin") {
         $sub_department = getAllDepartment();
+        $isSuperAdmin = "yes";
     } else if ($user_obj[0]['INST_ID'] == 0) {
         $sub_department = getSubDepartmentByHODId($user_id);
     }
@@ -82,7 +84,7 @@
                                             <option value="0">---Select A Option---</option>
                                             <option value="1">Inward</option>
                                             <option value="2">Outward</option>
-                                            <option value="2">All</option>
+                                            <option value="3">All</option>
                                         </select>
                                     </div>
                                 </div>
@@ -92,6 +94,7 @@
                                 <div class="col-md-5"></div>
                                 <div class="col-md-2">
                                     <div class="top-margin" style="padding-top: 10px">
+                                        <input type="hidden" value="<?= $isSuperAdmin ?>" name="isSuperAdmin" hidden />
                                         <input type="submit" value="Show" name="show" id="show"
                                                class="btn btn-round btn-success">
                                     </div>

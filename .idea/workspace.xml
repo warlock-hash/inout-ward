@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b57e7a46-76cb-4006-b30a-434856617e44" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/mainPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/mainPanel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/outward_handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/outward_handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/recievelatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/recievelatter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/manager/OutwardManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/manager/OutwardManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/manager/manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/manager/manager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/admin/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/admin/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/manager/report_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/manager/report_manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/reporting.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/reporting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/show_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/show_report.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +131,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3f310e91" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d2e96881" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d2e96881" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@4785cd79" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -234,6 +237,10 @@
       <workItem from="1574704538499" duration="797000" />
       <workItem from="1574715218207" duration="170000" />
       <workItem from="1575007402062" duration="8067000" />
+      <workItem from="1575050469005" duration="10245000" />
+      <workItem from="1575110417488" duration="6228000" />
+      <workItem from="1575216918942" duration="835000" />
+      <workItem from="1575225831854" duration="19000" />
     </task>
     <servers />
   </component>

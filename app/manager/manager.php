@@ -1,7 +1,8 @@
 <?php
 //require "../db/db.php";
 
-function getConnection(){
+function getConnection()
+{
 //    $server = "162.216.113.196";
 //    $username = "drgs123";
 //    $password = "ka5hifshaikh";
@@ -10,11 +11,11 @@ function getConnection(){
     $username = "root";
     $password = "";
     $database = "usindhex_exams_test";
-    $con=mysqli_connect($server,$username,$password,$database);
+    $con = mysqli_connect($server, $username, $password, $database);
     if ($con->connect_error) {
         die("Connection failed: " . $con->connect_error);
         return false;
-    }else{
+    } else {
         //echo "Connected";
         return $con;
     }
@@ -40,37 +41,52 @@ function getNextId($id_for, $table)
     return $id;
 }
 
-function mergeDateAndTime($date){
+function mergeDateAndTime($date)
+{
     date_default_timezone_set('Asia/karachi');
     $time = date('H:i:s');
     $combinedDT = date('Y-m-d H:i:s', strtotime("$date $time"));
     return $combinedDT;
 }
 
-function getDepartmentById($dept_id){
-    $con=getConnection();
-    $query="Select * from department where DEPT_ID = '$dept_id'";
-    $result=mysqli_query($con,$query);
-    if (!$result){
-        die("dead".mysqli_error($con));
-        return false;
-    }
-    while ($row = mysqli_fetch_assoc($result)){
-        return $row;
+function getDepartmentById($dept_id, $is_super_admin)
+{
+    $con = getConnection();
+    if ($is_super_admin == -1) {
+        $query = "Select DEPT_ID as 'USER_ID',DEPT_NAME as 'NAME',REMARKS from department where DEPT_ID = '$dept_id'";
+        $result = mysqli_query($con, $query);
+        if (!$result) {
+            die("dead" . mysqli_error($con));
+            return false;
+        }
+        while ($row = mysqli_fetch_assoc($result)) {
+            return $row;
+        }
+    } else {
+        $query = "Select USER_ID as 'USER_ID',NAME as 'NAME',REMARKS from sac_login_user where USER_ID = '$dept_id'";
+        $result = mysqli_query($con, $query);
+        if (!$result) {
+            die("dead" . mysqli_error($con));
+            return false;
+        }
+        while ($row = mysqli_fetch_assoc($result)) {
+            return $row;
+        }
     }
 }
 
-function getDataStaticQuery($columns,$tables,$condition){
+function getDataStaticQuery($columns, $tables, $condition)
+{
     $con = getConnection();
     $query = "SELECT $columns from $tables where $condition";
     $result = mysqli_query($con, $query);
     if (!$result) {
-        die( "dead" . mysqli_error($con));
+        die("dead" . mysqli_error($con));
         return false;
     }
     $list = array();
-    $i=0;
-    while ($row = mysqli_fetch_assoc($result)){
+    $i = 0;
+    while ($row = mysqli_fetch_assoc($result)) {
         $list[$i] = $row;
         $i++;
     }
@@ -78,38 +94,42 @@ function getDataStaticQuery($columns,$tables,$condition){
 
 }
 
-function isValidData($data){
+function isValidData($data)
+{
 
-    $data  =   addslashes(trim($data));
+    $data = addslashes(trim($data));
     return $data;
 }
 
 //PERCENTAGE,COUNTER,PHD_COUNTER,MS_COUNTER,MPHIL_COUNTER,`STATUS`,`DESIGNATION`
 
-function isValidAdmin($username,$password){
-    $coulmn="DEPT_ID as USER_ID,FAC_ID,INST_ID,DEPT_NAME as 'NAME',IS_INST,`CODE`,REMARKS,USER_TEMP AS USERNAME,PASS_TEMP AS PASSWORD,CITY_NAME";
-    $table="department";
-    $condition="((EMAIL='$username' AND SAC_PASSWORD='$password') AND (IS_INST ='Y' OR IS_INST = 'N'))";
-    
+function isValidAdmin($username, $password)
+{
+    $coulmn = "DEPT_ID as USER_ID,FAC_ID,INST_ID,DEPT_NAME as 'NAME',IS_INST,`CODE`,REMARKS,USER_TEMP AS USERNAME,PASS_TEMP AS PASSWORD,CITY_NAME";
+    $table = "department";
+    $condition = "((EMAIL='$username' AND SAC_PASSWORD='$password') AND (IS_INST ='Y' OR IS_INST = 'N'))";
+
     // INST_ID = 0 AND (IS_INST ='Y' OR IS_INST = 'N'))
-    
-    $obj=getDataStaticQuery($coulmn,$table,$condition);
-    
+
+    $obj = getDataStaticQuery($coulmn, $table, $condition);
+
     return $obj;
 }
 
-function isValidSuperAdmin($username, $password){
-    $column="USER_ID, `NAME`, USER_NAME, IMAGE, `PASSWORD`, RESET_TOKEN, ACCT_STATUS, REMARKS";
-    $table="sac_login_user";
-    $condition="USER_NAME='$username' AND `PASSWORD`='$password'";
-    $obj=getDataStaticQuery($column,$table,$condition);
+function isValidSuperAdmin($username, $password)
+{
+    $column = "USER_ID, `NAME`, USER_NAME, IMAGE, `PASSWORD`, RESET_TOKEN, ACCT_STATUS, REMARKS";
+    $table = "sac_login_user";
+    $condition = "USER_NAME='$username' AND `PASSWORD`='$password'";
+    $obj = getDataStaticQuery($column, $table, $condition);
     return $obj;
 }
 
-function getUserInfo($dept_id){
-    $coulmn="DEPT_ID,FAC_ID,INST_ID,DEPT_NAME,IS_INST,`CODE`,REMARKS,USER_TEMP AS USERNAME,CITY_NAME";
-    $table="department";
-    $condition="((DEPT_ID='$dept_id') AND (INST_ID = 0 AND (IS_INST ='Y' OR IS_INST = 'N')))";
-    $obj=getDataStaticQuery($coulmn,$table,$condition);
+function getUserInfo($dept_id)
+{
+    $coulmn = "DEPT_ID,FAC_ID,INST_ID,DEPT_NAME,IS_INST,`CODE`,REMARKS,USER_TEMP AS USERNAME,CITY_NAME";
+    $table = "department";
+    $condition = "((DEPT_ID='$dept_id') AND (INST_ID = 0 AND (IS_INST ='Y' OR IS_INST = 'N')))";
+    $obj = getDataStaticQuery($coulmn, $table, $condition);
     return $obj;
 }
